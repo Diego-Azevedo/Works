@@ -12,7 +12,7 @@
 
         <div class="video-wrapper">
           <video autoplay muted loop playsinline preload="metadata">
-            <source src="/video/works3.mp4" type="video/mp4" />
+            <source :src="`${baseUrl}video/works3.mp4`" type="video/mp4" />
           </video>
         </div>
       </div>
@@ -265,6 +265,14 @@
 </style>
 
 <script setup>
+// Garantir que o baseUrl sempre termine com /
+const getBaseUrl = () => {
+  const base = import.meta.env.BASE_URL || '/Works/';
+  return base.endsWith('/') ? base : base + '/';
+};
+
+const baseUrl = getBaseUrl();
+
 const scrollToSection = (sectionId) => {
   const element = document.querySelector(sectionId);
   if (element) {

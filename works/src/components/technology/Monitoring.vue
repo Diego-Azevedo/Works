@@ -26,6 +26,8 @@
                   playsinline
                   class="video-player"
                   :key="currentCamera.id"
+                  @error="handleVideoError"
+                  @loadeddata="handleVideoLoaded"
                 >
                   <source :src="currentCamera.video" type="video/mp4" />
                 </video>
@@ -146,23 +148,31 @@ import { ref, computed } from 'vue';
 
 const videoPlayer = ref(null);
 
+// Garantir que o baseUrl sempre termine com /
+const getBaseUrl = () => {
+  const base = import.meta.env.BASE_URL || '/Works/';
+  return base.endsWith('/') ? base : base + '/';
+};
+
+const baseUrl = getBaseUrl();
+
 const cameras = [
   {
     id: 1,
     name: 'Câmera 1',
-    video: '/video/camera1.mp4',
+    video: `${baseUrl}video/camera1.mp4`,
     feed: 'LIVE FEED: CANAL 01 - OBRA FLORESTAL'
   },
   {
     id: 2,
     name: 'Câmera 2',
-    video: '/video/camera2.mp4',
+    video: `${baseUrl}video/camera2.mp4`,
     feed: 'LIVE FEED: CANAL 02 - RUA DOS CRAVOS'
   },
   {
     id: 3,
     name: 'Câmera 3',
-    video: '/video/obraRota.mp4',
+    video: `${baseUrl}video/obraRota.mp4`,
     feed: 'LIVE FEED: CANAL 03 - OBRA CENTRO'
   }
 ];
@@ -180,6 +190,18 @@ const selectCamera = (camera) => {
     videoPlayer.value.load();
     videoPlayer.value.play();
   }
+};
+
+const handleVideoError = (event) => {
+  console.error('Erro ao carregar vídeo:', {
+    src: currentCamera.value.video,
+    baseUrl: baseUrl,
+    error: event.target.error
+  });
+};
+
+const handleVideoLoaded = () => {
+  console.log('Vídeo carregado com sucesso:', currentCamera.value.video);
 };
 
 const capabilities = [
