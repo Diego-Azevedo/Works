@@ -62,7 +62,7 @@
       <div class="tech-visual-content">
         <div class="image-glass-card">
           <div class="device-glow"></div>
-          <img src="/src/assets/segments/biometriaFacil.png" alt="Terminal Hikvision MinMoe" class="device-img" />
+          <img :src="biometriaFacilImg" alt="Terminal Hikvision MinMoe" class="device-img" />
         </div>
       </div>
 
@@ -138,6 +138,10 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
+</script>
 
 <style scoped>
 /* Estilos consistentes com Cftv.vue */

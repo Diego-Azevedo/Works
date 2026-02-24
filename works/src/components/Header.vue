@@ -4,7 +4,7 @@
       
       <div class="logo-area">
         <img
-          src="/src/assets/works.png"
+          :src="worksLogo"
           alt="Cube Security Logo"
           class="logo-icon"
         />
@@ -57,6 +57,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import worksLogo from '@/assets/works.png';
 
 const isMenuOpen = ref(false);
 const isScrolled = ref(false);

@@ -51,7 +51,7 @@
           <div class="camera-glow"></div>
           <div class="side-overlay-left"></div>
           <div class="side-overlay-right"></div>
-          <img src="/src/assets/360cam.png" alt="Câmera Hikvision IA" class="camera-img" />
+          <img :src="camera360Img" alt="Câmera Hikvision IA" class="camera-img" />
           
           <!-- <div class="floating-badge">
             <div class="badge-icon">
@@ -68,6 +68,10 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import camera360Img from '@/assets/360cam.png';
+</script>
 
 <style scoped>
 /* Estilos extraídos do design original para manter a consistência visual */
