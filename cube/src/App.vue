@@ -21,10 +21,7 @@
       </section>
 
       <section id="contato" class="section">
-        <div class="section-content">
-          <h1>Contato</h1>
-          <p>Conteúdo da seção Contato</p>
-        </div>
+        <Contact />
       </section>
     </main>
   </div>
@@ -36,6 +33,7 @@ import Header from './components/Header.vue'
 import Home from './components/Home.vue'
 import Services from './components/Services.vue'
 import Technology from './components/Technology.vue'
+import Contact from './components/Contact.vue'
 import { onMounted } from 'vue';
 
 onMounted(() => {

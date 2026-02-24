@@ -142,7 +142,7 @@
 <style scoped>
 /* Estilos consistentes com Cftv.vue */
 .tech-detail-block {
-  padding: 80px 0;
+  padding: 0 0;
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -331,7 +331,7 @@
 
 /* Seção Integrações e Recursos Avançados */
 .advanced-integrations-section {
-  padding: 80px 0;
+  padding: 20px 0;
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(0, 0, 0, 0.2);
@@ -440,7 +440,7 @@
 @media (max-width: 1024px) {
   .advanced-integrations-section {
     padding-top: 0;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
   }
 }
 
