@@ -23,13 +23,22 @@ jobs:
         with:
           node-version: 20
 
+      - name: Navegar para o diretório do projeto
+        run: |
+          cd works
+          pwd
+          ls -la
+
       - name: Install dependencies
+        working-directory: ./works
         run: npm install
 
       - name: Build do Projeto
+        working-directory: ./works
         run: npm run build
 
       - name: Verificar build
+        working-directory: ./works
         run: |
           ls -la dist/
           echo "Build concluído com sucesso"
@@ -40,7 +49,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: 'works/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
