@@ -35,6 +35,8 @@ jobs:
 
       - name: Build do Projeto
         working-directory: ./works
+        env:
+          BASE_PATH: /Works/
         run: npm run build
 
       - name: Verificar build
