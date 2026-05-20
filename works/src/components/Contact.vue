@@ -212,25 +212,38 @@ const form = ref({
   message: ''
 });
 
+const WHATSAPP_NUMBER = '5551998675316';
+
+const buildWhatsAppUrl = (message) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
 const handleSubmit = () => {
-  console.log('Form submitted:', form.value);
-  // Add your form submission logic here
+  const { name, company, email, phone, message } = form.value;
+
+  const text =
+    `*Solicitação de orçamento - Site Works*\n\n` +
+    `*Nome:* ${name}\n` +
+    `*Empresa:* ${company}\n` +
+    `*E-mail:* ${email}\n` +
+    `*Telefone:* ${phone}\n\n` +
+    `*Mensagem:*\n${message}`;
+
+  window.open(buildWhatsAppUrl(text), '_blank');
+
+  form.value = {
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    message: ''
+  };
 };
 
 const openWhatsApp = () => {
-  // Número do WhatsApp (removendo espaços, parênteses e hífens)
-  const phoneNumber = '5551998675316';
-  
-  // Mensagem pré-formatada
-  const message = encodeURIComponent(
-    'Olá! Gostaria de solicitar um orçamento para soluções de segurança.'
-  );
-  
-  // URL do WhatsApp Web/App
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-  
-  // Abre em nova aba
-  window.open(whatsappUrl, '_blank');
+  const message =
+    'Olá! Gostaria de solicitar um orçamento para soluções de segurança.';
+
+  window.open(buildWhatsAppUrl(message), '_blank');
 };
 </script>
 
