@@ -76,8 +76,25 @@ import camera360Img from '@/assets/360cam.png';
 <style scoped>
 /* Estilos extraídos do design original para manter a consistência visual */
 .tech-detail-block {
+  position: relative;
   padding: 80px 0;
   width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(248, 221, 115, 0.045), transparent 24rem),
+    linear-gradient(180deg, #030303 0%, #000 100%);
+}
+
+.tech-detail-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(220px, 55vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(248, 221, 115, 0.75), transparent);
+  z-index: 3;
 }
 
 .tech-container {
@@ -137,15 +154,27 @@ import camera360Img from '@/assets/360cam.png';
   max-width: 540px;
 }
 
+.tech-features-list {
+  max-width: 620px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
 .feature-item {
   display: flex;
   gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.035);
   padding: 1.5rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   transition: all 0.3s ease;
+}
+
+.feature-item:last-child {
+  margin-bottom: 0;
 }
 
 .feature-item:hover {

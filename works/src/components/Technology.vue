@@ -18,7 +18,9 @@
 
 <style scoped>
   .technology-section {
-    background-color: #000;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(186, 121, 40, 0.12), transparent 24rem),
+      linear-gradient(180deg, #000 0%, #060606 38%, #000 100%);
     width: 100%;
     min-height: 100vh;
     display: flex;

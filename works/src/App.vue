@@ -8,19 +8,19 @@
         <Home />
       </section>
 
-      <section id="quem-somos" class="section">
-          <Enterprise />
+      <section id="quem-somos" class="section section-about">
+        <Enterprise />
       </section>
 
-      <section id="nossos-servicos" class="section services-bg">
+      <section id="nossos-servicos" class="section section-services">
         <Services />
       </section>
 
-      <section id="tecnologia" class="section">
+      <section id="tecnologia" class="section section-technology">
         <Technology />
       </section>
 
-      <section id="contato" class="section">
+      <section id="contato" class="section section-contact">
         <Contact />
       </section>
     </main>
@@ -82,6 +82,35 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  isolation: isolate;
+}
+
+.section:not(.home-section)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(220px, 55vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(248, 221, 115, 0.75), transparent);
+  z-index: 3;
+}
+
+.section-about {
+  background: #070707;
+}
+
+.section-services {
+  background: #101010;
+}
+
+.section-technology {
+  background: #000;
+}
+
+.section-contact {
+  background: #0b0b0b;
 }
 
 .home-section {
@@ -107,15 +136,6 @@ body {
   font-size: 1.125rem;
   color: #666;
   line-height: 1.6;
-}
-
-/* Backgrounds alternados */
-.section:nth-child(even) {
-  background-color: #f8f9fa;
-}
-
-.section:nth-child(odd):not(.home-section) {
-  background-color: #ffffff;
 }
 
 /* Responsividade Geral */

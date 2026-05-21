@@ -5,8 +5,8 @@
       <div class="section-header">
         <span class="eyebrow">SOLUÇÕES DE ELITE</span>
         <h2>
-          <span class="text-gradient">SEGURANÇA REDEFINIDA</span> <br />
-          <span class="text-gradient">COM INTELIGÊNCIA</span>
+          <span class="text-gradient">Segurança redefinida</span> <br />
+          <span class="text-gradient">com inteligência</span>
         </h2>
         <p class="header-desc">
           Tecnologias disruptivas e integração sistêmica de alta performance.
@@ -141,7 +141,9 @@ const scrollToSection = (sectionId) => {
 
 <style scoped>
 .services-section {
-  background-color: #050505;
+  background:
+    linear-gradient(180deg, #101010 0%, #050505 52%, #0c0c0c 100%),
+    radial-gradient(circle at 85% 15%, rgba(248, 221, 115, 0.08), transparent 28%);
   width: 100%;
   /* Força ocupar a altura da tela, mas permite crescer se necessário */
   min-height: 100vh; 
@@ -149,7 +151,7 @@ const scrollToSection = (sectionId) => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 2rem 2rem; /* Padding top maior para compensar Header fixo */
+  padding: clamp(6rem, 10vh, 8rem) 2rem;
 }
 
 .content-container {
@@ -163,7 +165,7 @@ const scrollToSection = (sectionId) => {
 /* --- Header Section --- */
 .section-header {
   text-align: center;
-  margin-bottom: 2.5rem; /* Margem reduzida para caber tudo */
+  margin-bottom: 3.5rem;
 }
 
 .eyebrow {
@@ -182,7 +184,6 @@ const scrollToSection = (sectionId) => {
   font-weight: 800;
   color: #fff;
   margin-bottom: 0.5rem;
-  text-transform: uppercase;
 }
 
 /* Gradiente estilo Home */
@@ -198,22 +199,29 @@ const scrollToSection = (sectionId) => {
   font-size: 1rem;
   max-width: 600px;
   margin: 0 auto;
+  line-height: 1.7;
 }
 
 /* --- Grid Section (3x2) --- */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem; /* Gap mais apertado */
+  gap: 1.25rem;
   width: 100%;
-  flex-grow: 1; /* Ocupa o espaço restante */
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012)),
+    rgba(0, 0, 0, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 24px 70px rgba(0, 0, 0, 0.35);
 }
 
 .service-card {
-  background: linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(10,10,10,0.8) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, rgba(24, 24, 24, 0.92) 0%, rgba(10, 10, 10, 0.92) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.065);
   border-radius: 1rem;
-  padding: 1.5rem; /* Padding interno reduzido (antes era 2.5rem) */
+  padding: 1.65rem;
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
@@ -311,7 +319,7 @@ const scrollToSection = (sectionId) => {
 @media (max-width: 1024px) {
   .services-section {
     height: auto; /* Remove altura fixa em tablets */
-    padding-top: 0;
+    padding-top: 6rem;
     padding-bottom: 80px;
     padding-left: 2rem;
     padding-right: 2rem;

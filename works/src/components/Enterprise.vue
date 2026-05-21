@@ -5,23 +5,30 @@
       <div class="main-grid">
         <div class="text-content">
           <span class="eyebrow">NOSSA ESSÊNCIA</span>
+          <h2 class="section-title">Soluções de segurança com padrão técnico de campo</h2>
           
           <p class="description">
             A <strong>Works Sistemas Inteligentes</strong> é especialista em entregar soluções que realmente funcionam.
-            Fundada para resolver problemas reais de operação, atua com foco em segurança eletrônica, automação e sistemas
-            inteligentes, utilizando exclusivamente tecnologia <strong>Hikvision</strong> para garantir confiabilidade, padronização e alto desempenho.
+            Atuamos com segurança eletrônica, automação e sistemas inteligentes, utilizando tecnologia
+            <strong>Hikvision</strong> para garantir confiabilidade, padronização e alto desempenho.
           </p>
           
           <p class="description">
-            Desenvolvemos e gerenciamos sistemas profissionais de monitoramento por câmeras IP, controle de acesso, reconhecimento
-            facial e automação, sempre com foco em inteligência artificial, segurança da informação e funcionamento contínuo no ambiente real.
+            Cada projeto nasce com arquitetura IP definida desde a implantação, integrando
+            monitoramento, acesso facial e automação ao ambiente real. Também acompanhamos a
+            operação ao longo do tempo para que o sistema continue confiável, ajustado à rotina
+            e preparado para crescer com o cliente.
           </p>
 
           <p class="description">
-            A atuação da Works é guiada por um padrão técnico rigoroso. Trabalhamos exclusivamente com soluções IP, descartando sistemas
-            analógicos, com arquitetura bem definida e acompanhamento contínuo. Todas as decisões técnicas são baseadas em experiência prática de campo, garantindo
-            que a tecnologia entregue funcione de forma confiável ao longo do tempo.
+            Atendemos residências, condomínios, empresas, comércios, indústrias, obras,
+            estacionamentos e frotas corporativas, com presença técnica próxima na região de
+            atuação da empresa e suporte preparado para entender as necessidades de cada local.
           </p>
+
+          <div class="actions">
+            <button class="btn-primary" @click="scrollToSection('#contato')">Contate com um especialista</button>
+          </div>
         </div>
 
         <div class="segments-display">
@@ -45,10 +52,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="actions">
-          <button class="btn-primary" @click="scrollToSection('#contato')">Contate com um especialista</button>
         </div>
       </div>
 
@@ -85,12 +88,14 @@ const scrollToSection = (sectionId) => {
 
 <style scoped>
 .enterprise-section {
-  background-color: #000;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(186, 121, 40, 0.12), transparent 30%),
+    linear-gradient(180deg, #070707 0%, #0d0d0d 55%, #050505 100%);
   color: #fff;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 120px 2rem;
+  padding: clamp(7rem, 12vh, 10rem) 2rem;
   width: 100%;
   /* Otimização: força renderização do background */
   transform: translateZ(0);
@@ -107,7 +112,7 @@ const scrollToSection = (sectionId) => {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr; /* Ajuste sutil na proporção */
   gap: 6rem;
-  align-items: start; /* Alinhamento ao topo garantido */
+  align-items: center;
 }
 
 /* --- Texto --- */
@@ -116,8 +121,21 @@ const scrollToSection = (sectionId) => {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.25em;
+  text-transform: uppercase;
   display: block;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  max-width: 680px;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  font-weight: 800;
+  background: linear-gradient(90deg, #f8dd73, #ba7928);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .eyebrow-small {
@@ -134,7 +152,7 @@ const scrollToSection = (sectionId) => {
   color: #9ca3af;
   font-size: 1.05rem;
   line-height: 1.8;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
   max-width: 600px;
 }
 
@@ -165,6 +183,10 @@ const scrollToSection = (sectionId) => {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .segment-card {
@@ -228,7 +250,7 @@ const scrollToSection = (sectionId) => {
 /* Mobile */
 @media (max-width: 1024px) {
   .enterprise-section {
-    padding-top: 0;
+    padding-top: 6rem;
     padding-bottom: 80px;
   }
 

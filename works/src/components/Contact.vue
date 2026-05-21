@@ -5,6 +5,7 @@
       <div class="contact-grid">
         <!-- Left Section: Information -->
         <div class="info-section">
+          <span class="eyebrow">FALE COM A WORKS</span>
           <h2 class="section-title">
             Entre em contato
           </h2>
@@ -13,50 +14,52 @@
             Transforme a segurança do seu patrimônio com tecnologia de ponta. Nossa equipe de especialistas está pronta para projetar sua solução inteligente e personalizada.
           </p>
 
-          <!-- Social Cards -->
-          <div class="social-cards">
-            <div class="social-card" @click="openWhatsApp">
-              <div class="social-icon">
-                <component :is="IconWhatsApp" />
+          <div class="contact-info-panel">
+            <!-- Social Cards -->
+            <div class="social-cards">
+              <div class="social-card" @click="openWhatsApp">
+                <div class="social-icon">
+                  <component :is="IconWhatsApp" />
+                </div>
+                <div class="social-info">
+                  <span class="social-title">WhatsApp</span>
+                  <span class="social-desc">Atendimento imediato via chat</span>
+                </div>
               </div>
-              <div class="social-info">
-                <span class="social-title">WhatsApp</span>
-                <span class="social-desc">Atendimento imediato via chat</span>
-              </div>
+
+              <!-- <div class="social-card">
+                <div class="social-icon">
+                  <component :is="IconInstagram" />
+                </div>
+                <div class="social-info">
+                  <span class="social-title">Instagram</span>
+                  <span class="social-desc">Acompanhe nossas inovações</span>
+                </div>
+              </div> -->
             </div>
 
-            <!-- <div class="social-card">
-              <div class="social-icon">
-                <component :is="IconInstagram" />
+            <!-- Contact Details -->
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <component :is="IconEmail" />
+                </div>
+                <span>workssistemasinteligentes@gmail.com</span>
               </div>
-              <div class="social-info">
-                <span class="social-title">Instagram</span>
-                <span class="social-desc">Acompanhe nossas inovações</span>
-              </div>
-            </div> -->
-          </div>
 
-          <!-- Contact Details -->
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <component :is="IconEmail" />
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <component :is="IconPhone" />
+                </div>
+                <span>+55 (51) 99867-5316</span>
               </div>
-              <span>workssistemasinteligentes@gmail.com</span>
-            </div>
 
-            <div class="contact-item">
-              <div class="contact-icon">
-                <component :is="IconPhone" />
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <component :is="IconLocation" />
+                </div>
+                <span>Rua dois norte, 251 Apt 201 - Teutônia, RS</span>
               </div>
-              <span>+55 (51) 99867-5316</span>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <component :is="IconLocation" />
-              </div>
-              <span>Rua dois norte, 251 Apt 201 - Teutônia, RS</span>
             </div>
           </div>
         </div>
@@ -249,12 +252,14 @@ const openWhatsApp = () => {
 
 <style scoped>
 .contact-section {
-  background-color: #000;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(186, 121, 40, 0.12), transparent 26rem),
+    linear-gradient(180deg, #0b0b0b 0%, #030303 100%);
   color: #fff;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 60px 2rem;
+  padding: clamp(6rem, 10vh, 8rem) 2rem;
   width: 100%;
 }
 
@@ -280,6 +285,14 @@ const openWhatsApp = () => {
   gap: 1.25rem;
 }
 
+.eyebrow {
+  color: #ba7928;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
 .section-title {
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.1;
@@ -299,12 +312,20 @@ const openWhatsApp = () => {
   margin-bottom: 1rem;
 }
 
+.contact-info-panel {
+  max-width: 560px;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
 /* Social Cards */
 .social-cards {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .social-card {
@@ -359,6 +380,7 @@ const openWhatsApp = () => {
   align-items: flex-start;
   gap: 1rem;
   margin-top: 1rem;
+  padding: 0.25rem 0.5rem 0.5rem;
 }
 
 .contact-item {
@@ -394,11 +416,9 @@ const openWhatsApp = () => {
   padding: 2rem 2.25rem;
   border-radius: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.06),
-    rgba(0, 0, 0, 0.85)
-  );
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.075), rgba(0, 0, 0, 0.86)),
+    rgba(10, 10, 10, 0.9);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(18px);
 }
@@ -500,7 +520,7 @@ const openWhatsApp = () => {
    ===================== */
 @media (max-width: 1024px) {
   .contact-section {
-    padding: 50px 2rem 80px;
+    padding: 6rem 2rem 80px;
   }
 
   .contact-grid {
@@ -520,6 +540,10 @@ const openWhatsApp = () => {
   .section-description {
     text-align: center;
     max-width: 100%;
+  }
+
+  .contact-info-panel {
+    width: 100%;
   }
 
   .form-row {

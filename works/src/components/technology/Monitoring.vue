@@ -5,8 +5,42 @@
       <div class="section-container">
         <div class="hero-grid">
 
+          <div class="text-content">
+            <div class="status-badge">
+              <span class="pulse-dot"></span>
+              <span class="badge-text">SISTEMA ATIVO</span>
+            </div>
+            <p class="description">
+              Segurança proativa potencializada por IA, garantindo proteção ininterrupta para seu patrimônio e tranquilidade para você. O sistema identifica intrusões, envia alertas em tempo real e mantém eventos críticos gravados com segurança.
+            </p>
+
+            <div class="monitoring-panel">
+              <div class="tech-grid">
+                <div class="tech-card" v-for="(tech, index) in technologies" :key="index">
+                  <div class="tech-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path :d="tech.iconPath" />
+                    </svg>
+                  </div>
+                  <h4>{{ tech.title }}</h4>
+                  <p>{{ tech.desc }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn-primary" @click="scrollToSection('#contato')">
+                Ver Planos
+              </button>
+            </div>
+          </div>
+
           <!-- Dashboard Representation -->
           <div class="dashboard-visual">
+            <h1 class="gold-gradient-text">
+              Monitoramento Inteligente 24/7
+            </h1>
+
             <div class="glass-card dashboard-glow">
               <div class="card-header">
                 <div class="window-controls">
@@ -58,88 +92,12 @@
               </div>
             </div>
           </div>
-          
-          <div class="text-content">
-            <div class="status-badge">
-              <span class="pulse-dot"></span>
-              <span class="badge-text">SISTEMA ATIVO</span>
-            </div>
-            <h1 class="gold-gradient-text">
-              Monitoramento Inteligente 24/7
-            </h1>
-            <p class="description">
-              Segurança proativa potencializada por IA, garantindo proteção ininterrupta para seu patrimônio e tranquilidade para você.
-            </p>
-            <div class="actions">
-              <button class="btn-primary" @click="scrollToSection('#contato')">
-                Ver Planos
-              </button>
-            </div>
-          </div>
 
           
         </div>
       </div>
     </div>
 
-    <!-- O Que Faz Section -->
-    <section class="capabilities-section">
-      <div class="section-container">
-        <div class="section-header">
-          <h2 class="section-label">Capacidades</h2>
-          <h3 class="section-title">O que faz o sistema inteligente?</h3>
-        </div>
-        <div class="capabilities-grid">
-          <div class="cap-card" v-for="(cap, index) in capabilities" :key="index">
-            <div class="cap-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path :d="cap.iconPath" />
-              </svg>
-            </div>
-            <h4>{{ cap.title }}</h4>
-            <p>{{ cap.desc }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tecnologias e Recursos Section -->
-    <section class="technologies-section">
-      <div class="section-container">
-        <div class="technologies-grid">
-          <div class="technologies-visual">
-            <div class="tech-grid">
-              <div class="tech-card" v-for="(tech, index) in technologies" :key="index">
-                <div class="tech-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path :d="tech.iconPath" />
-                  </svg>
-                </div>
-                <h4>{{ tech.title }}</h4>
-                <p>{{ tech.desc }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="technologies-content">
-            <h2 class="section-label">Tecnologia</h2>
-            <h3 class="section-title">Equipamentos de última geração para sua proteção</h3>
-            <p class="technologies-description">
-              Nossos sistemas utilizam o que há de mais moderno em hardware e software de segurança. Integramos sensores térmicos, análise de som e detecção facial para criar uma barreira invisível e intransponível.
-            </p>
-            <ul class="features-list">
-              <li v-for="(feature, index) in features" :key="index">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <span>{{ feature }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
   </section>
 </template>
 
@@ -204,24 +162,6 @@ const handleVideoLoaded = () => {
   console.log('Vídeo carregado com sucesso:', currentCamera.value.video);
 };
 
-const capabilities = [
-  {
-    iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-    title: 'Detecção de Intrusão',
-    desc: 'IA avançada que identifica movimentos suspeitos e distingue humanos de animais ou objetos instantaneamente.'
-  },
-  {
-    iconPath: 'M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9',
-    title: 'Alertas em Tempo Real',
-    desc: 'Notificações imediatas direto no seu smartphone ou central de operações ao detectar qualquer anomalia.'
-  },
-  {
-    iconPath: 'M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12',
-    title: 'Gravação em Nuvem',
-    desc: 'Segurança total com armazenamento criptografado dos eventos, permitindo acesso de qualquer lugar do mundo.'
-  }
-];
-
 const technologies = [
   {
     iconPath: 'M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z',
@@ -245,12 +185,6 @@ const technologies = [
   }
 ];
 
-const features = [
-  'Uptime garantido de 99.9%',
-  'Conectividade redundante (Wi-Fi + 4G)',
-  'Criptografia de nível bancário (AES-256)'
-];
-
 const scrollToSection = (sectionId) => {
   const element = document.querySelector(sectionId);
   if (element) {
@@ -261,10 +195,28 @@ const scrollToSection = (sectionId) => {
 
 <style scoped>
 .monitoring-section {
-  background: #000;
+  position: relative;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(186, 121, 40, 0.1), transparent 24rem),
+    linear-gradient(180deg, #050505 0%, #0d0d0d 48%, #050505 100%);
   color: #fff;
-  min-height: calc(100vh - 80px);
-  padding-top: 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(56px, 7vh, 88px) 0 clamp(24px, 4vh, 48px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.monitoring-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(220px, 55vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(248, 221, 115, 0.75), transparent);
+  z-index: 3;
 }
 
 .section-container {
@@ -275,20 +227,22 @@ const scrollToSection = (sectionId) => {
 
 /* Hero Section */
 .hero-section {
-  padding: 6rem 0 4rem;
+  width: 100%;
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: stretch;
 }
 
 .text-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vh, 1.4rem);
+  justify-content: center;
+  min-height: clamp(520px, 68vh, 640px);
 }
 
 /* Status Badge */
@@ -326,17 +280,18 @@ const scrollToSection = (sectionId) => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.15rem, 3.6vw, 3.25rem);
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+  max-width: 620px;
 }
 
 .description {
   color: #9ca3af;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 3rem;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.55;
+  margin-bottom: 0;
   max-width: 540px;
 }
 
@@ -344,7 +299,7 @@ const scrollToSection = (sectionId) => {
 .actions {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.2rem;
 }
 
 .btn-primary {
@@ -386,6 +341,11 @@ const scrollToSection = (sectionId) => {
 /* Dashboard Visual */
 .dashboard-visual {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1.25rem, 2.5vh, 1.75rem);
+  min-height: clamp(520px, 68vh, 640px);
 }
 
 .glass-card {
@@ -393,10 +353,10 @@ const scrollToSection = (sectionId) => {
   backdrop-filter: blur(12px);
   border: 1px solid rgba(186, 121, 40, 0.2);
   border-radius: 1.5rem;
-  padding: 1.5rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .dashboard-glow {
@@ -408,7 +368,7 @@ const scrollToSection = (sectionId) => {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 1rem;
+  padding-bottom: 0.85rem;
 }
 
 .window-controls {
@@ -551,7 +511,7 @@ const scrollToSection = (sectionId) => {
 }
 
 .thumb {
-  height: 3rem;
+  height: clamp(2.3rem, 5vh, 3rem);
   background: rgba(255, 255, 255, 0.05);
   border-radius: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -616,131 +576,41 @@ const scrollToSection = (sectionId) => {
   color: #f8dd73;
 }
 
-/* Capabilities Section */
-.capabilities-section {
-  padding: 5rem 0;
-  background: #000;
-}
-
-.section-header {
-  margin-bottom: 3rem;
-}
-
-.section-label {
-  color: #ba7928;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.section-title {
-  font-size: 1.875rem;
-  font-weight: 700;
-}
-
-@media (max-width: 968px) {
-  .section-header {
-    text-align: left;
-  }
-  
-  .section-label {
-    text-align: left;
-  }
-  
-  .section-title {
-    text-align: left;
-  }
-}
-
-.capabilities-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.cap-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: all 0.3s ease;
-}
-
-.cap-card:hover {
-  transform: translateX(10px);
-  border-color: rgba(186, 121, 40, 0.4);
-}
-
-.cap-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(186, 121, 40, 0.1);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f8dd73;
-  flex-shrink: 0;
-}
-
-.cap-icon svg {
-  width: 22px;
-  height: 22px;
-}
-
-.cap-card h4 {
-  color: #fff;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
-  font-size: inherit;
-}
-
-.cap-card p {
-  color: #888;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-/* Technologies Section */
-.technologies-section {
-  padding: 5rem 0;
-}
-
-.technologies-grid {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
-  align-items: center;
-}
-
-.technologies-visual {
-  width: 50%;
+.monitoring-panel {
+  display: block;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.26);
+  max-width: 620px;
 }
 
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .tech-card {
-  padding: 1.5rem;
-  border-radius: 1.5rem;
+  padding: 0.9rem;
+  border-radius: 0.9rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateX(10px);
+  border-color: rgba(186, 121, 40, 0.4);
 }
 
 .tech-icon {
   color: #f8dd73;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .tech-icon svg {
@@ -751,73 +621,15 @@ const scrollToSection = (sectionId) => {
 .tech-card h4 {
   font-weight: 700;
   color: #fff;
-  font-size: inherit;
+  font-size: 0.92rem;
+  margin: 0;
 }
 
 .tech-card p {
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.4);
-}
-
-.technologies-content {
-  width: 50%;
-}
-
-.technologies-description {
-  color: #9ca3af;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 968px) {
-  .technologies-content {
-    text-align: left;
-  }
-  
-  .technologies-content .section-label {
-    text-align: left;
-  }
-  
-  .technologies-content .section-title {
-    text-align: left;
-  }
-  
-  .technologies-description {
-    text-align: left;
-  }
-}
-
-.features-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-}
-
-.features-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.features-list .feature-icon {
-  width: 24px;
-  height: 24px;
-  color: #f8dd73;
-  flex-shrink: 0;
-}
-
-.features-list .feature-icon svg {
-  width: 100%;
-  height: 100%;
-}
-
-.features-list span:last-child {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #fff;
+  line-height: 1.35;
+  margin: 0;
 }
 
 /* Animations */
@@ -828,37 +640,43 @@ const scrollToSection = (sectionId) => {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .monitoring-section {
+    min-height: auto;
+  }
+}
+
 @media (max-width: 968px) {
   .monitoring-section {
     padding-top: 20px;
   }
 
   .hero-section {
-    padding: 6rem 0 80px;
-  }
-
-  .capabilities-section {
-    padding-top: 0;
-    padding-bottom: 80px;
-  }
-
-  .technologies-section {
-    padding-top: 0;
-    padding-bottom: 80px;
+    padding: 4rem 0 80px;
   }
 
   .hero-grid {
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   
   .text-content {
+    display: contents;
     text-align: center;
+    min-height: auto;
+  }
+
+  .dashboard-visual {
+    min-height: auto;
+    order: 2;
   }
   
   .status-badge {
     margin-left: auto;
     margin-right: auto;
+    order: 1;
   }
   
   .gold-gradient-text {
@@ -866,39 +684,32 @@ const scrollToSection = (sectionId) => {
   }
   
   .description {
+    order: 3;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0;
   }
 
+  .monitoring-panel {
+    margin: 0 auto;
+    order: 4;
+  }
+
   .actions {
     display: none;
-  }
-
-  .capabilities-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .technologies-grid {
-    flex-direction: column;
-  }
-
-  .technologies-visual,
-  .technologies-content {
-    width: 100%;
-  }
-
-  .technologies-content {
-    order: 1;
-  }
-
-  .technologies-visual {
-    order: 2;
+    order: 5;
   }
 
   .dashboard-footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 640px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>

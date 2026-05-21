@@ -2,79 +2,33 @@
   <div id="tech-2" class="tech-detail-block">
     <div class="tech-container">
       
-      <div class="tech-text-content">
-        <div class="badge-eyebrow">
-          <span class="pulse-dot"></span>
-          <span class="badge-text">TECNOLOGIA TOUCHLESS HIKVISION</span>
+      <div class="tech-main-content">
+        <div class="tech-text-content">
+          <div class="badge-eyebrow">
+            <span class="pulse-dot"></span>
+            <span class="badge-text">TECNOLOGIA TOUCHLESS HIKVISION</span>
+          </div>
+          
+          <h2 class="tech-title gradient-text">
+            Controle de Acesso <br />
+            <span class="gradient-text">Biometria & IA</span>
+          </h2>
+
+          <p class="tech-description">
+            Segurança sem fricção para operações que exigem controle contínuo. O sistema combina deep learning, biometria facial, QR Code dinâmico, senha e reconhecimento de íris para áreas críticas.
+          </p>
+          <p class="tech-description">
+            A gestão em nuvem centraliza dashboards em tempo real, permissões por hierarquia e auditoria de conformidade, enquanto a integração operacional sincroniza bafômetros, bloqueios automáticos, portões e cancelas.
+          </p>
         </div>
-        
-        <h2 class="tech-title gradient-text">
-          Controle de Acesso <br />
-          <span class="gradient-text">Biometria & IA</span>
-        </h2>
 
-        <p class="tech-description">
-          Segurança sem fricção. Implementamos ecossistemas de acesso que combinam algoritmos de deep learning com a conveniência do fluxo contínuo.
-        </p>
-
-        <div class="tech-features-list">
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                <path d="M9 12l2 2 4-4" />
-              </svg>
-            </div>
-            <div class="feature-info">
-              <h4>Integração Operacional</h4>
-              <p>Sincronização com bafômetros de precisão, bloqueio automático instantâneo e controle de perímetros (portões e cancelas).</p>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
-            </div>
-            <div class="feature-info">
-              <h4>Gestão em Nuvem & Auditoria</h4>
-              <p>Dashboards em tempo real, gestão de permissões por níveis hierárquicos e relatórios completos de conformidade.</p>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
-            </div>
-            <div class="feature-info">
-              <h4>Versatilidade de Credenciais</h4>
-              <p>Convergência total entre QR Code dinâmico, biometria, senha e reconhecimento de íris para áreas críticas.</p>
-            </div>
+        <div class="tech-visual-content">
+          <div class="image-glass-card">
+            <div class="device-glow"></div>
+            <img :src="biometriaFacilImg" alt="Terminal Hikvision MinMoe" class="device-img" />
           </div>
         </div>
       </div>
-
-      <div class="tech-visual-content">
-        <div class="image-glass-card">
-          <div class="device-glow"></div>
-          <img :src="biometriaFacilImg" alt="Terminal Hikvision MinMoe" class="device-img" />
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Seção Integrações e Recursos Avançados -->
-    <div class="advanced-integrations-section">
-      <div class="integrations-container">
-        <h2 class="integrations-title">Integrações e Recursos Avançados</h2>
-        <p class="integrations-description">
-          Sistemas modulares projetados para se adaptar aos protocolos de segurança mais exigentes do mundo corporativo e industrial.
-        </p>
 
         <div class="integrations-cards-grid">
           <div class="integration-card">
@@ -134,7 +88,7 @@
             </p>
           </div>
         </div>
-      </div>
+
     </div>
   </div>
 </template>
@@ -146,19 +100,47 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
 <style scoped>
 /* Estilos consistentes com Cftv.vue */
 .tech-detail-block {
-  padding: 0 0;
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(28px, 3.5vh, 48px) 0 clamp(52px, 6.5vh, 80px);
   width: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(248, 221, 115, 0.045), transparent 24rem),
+    linear-gradient(180deg, #030303 0%, #000 100%);
+}
+
+.tech-detail-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(220px, 55vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(248, 221, 115, 0.75), transparent);
+  z-index: 3;
 }
 
 .tech-container {
   max-width: 1280px;
   margin: 0 auto;
+  width: 100%;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 4rem;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: clamp(0.8rem, 1.9vh, 1.45rem);
+}
+
+.tech-main-content {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
+  min-height: 0;
 }
 
 .badge-eyebrow {
@@ -170,7 +152,7 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
   padding: 0.5rem 1rem;
   border-radius: 50px;
   width: fit-content;
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1rem, 2vh, 1.5rem);
 }
 
 .pulse-dot {
@@ -191,10 +173,10 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
 }
 
 .tech-title {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.15rem, 3.6vw, 3.25rem);
   line-height: 1.1;
   font-weight: 800;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(0.75rem, 1.5vh, 1rem);
   color: #fff;
 }
 
@@ -207,23 +189,36 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
 
 .tech-description {
   color: #9ca3af;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 3rem;
-  max-width: 540px;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 620px;
+}
+
+.tech-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vh, 1.4rem);
+  justify-content: center;
+  max-width: 680px;
 }
 
 .tech-features-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.75rem;
+  max-width: 620px;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .feature-item {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   background: rgba(255, 255, 255, 0.03);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
@@ -236,8 +231,8 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
 }
 
 .feature-icon {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   background: rgba(186, 121, 40, 0.1);
   border-radius: 10px;
   display: flex;
@@ -254,16 +249,23 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
 
 .feature-info h4 {
   color: #fff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
   font-size: inherit;
   font-weight: 600;
 }
 
 .feature-info p {
   color: #9ca3af;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  line-height: 1.45;
   margin: 0;
+}
+
+.tech-visual-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
 }
 
 .image-glass-card {
@@ -272,7 +274,8 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 500px;
+  min-height: clamp(260px, 42vh, 420px);
+  max-height: 46vh;
 }
 
 .device-glow {
@@ -286,12 +289,12 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
 
 .device-img {
   width: 100%;
-  max-width: 500px;
+  max-width: min(390px, 100%);
   z-index: 2;
   position: relative;
   filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));
   transition: transform 0.3s ease;
-  margin-top: 3rem;
+  margin-top: clamp(0.5rem, 1.5vh, 1rem);
 }
 
 .device-img:hover {
@@ -301,14 +304,21 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
 
 @media (max-width: 1024px) {
   .tech-detail-block {
-    padding-top: 0;
-    padding-bottom: 80px;
+    min-height: auto;
+    padding: 80px 0;
   }
 
   .tech-container {
+    height: auto;
+    grid-template-rows: auto;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .tech-main-content {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 3rem;
+    gap: 2rem;
   }
   
   .tech-title {
@@ -324,76 +334,33 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
     text-align: left;
   }
   
-  .tech-visual-content {
-    order: -1;
-  }
-  
   .image-glass-card {
     min-height: 400px;
-  }
-}
-
-/* Seção Integrações e Recursos Avançados */
-.advanced-integrations-section {
-  padding: 20px 0;
-  width: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(0, 0, 0, 0.2);
-  margin-top: 3rem;
-}
-
-.integrations-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.integrations-title {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.2;
-  font-weight: 800;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 1.5rem;
-}
-
-.integrations-description {
-  color: #9ca3af;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  text-align: center;
-  margin-bottom: 4rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (max-width: 1024px) {
-  .integrations-title {
-    text-align: left;
-  }
-  
-  .integrations-description {
-    text-align: left;
-    margin-left: 0;
-    margin-right: 0;
+    max-height: none;
   }
 }
 
 .integrations-cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.65rem, 1.2vh, 0.95rem);
+  padding: clamp(0.65rem, 1.2vh, 0.95rem);
+  margin-bottom: clamp(1rem, 3vh, 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.26);
+  align-self: stretch;
+  min-height: 0;
 }
 
 .integration-card {
-  padding: 1.5rem;
-  border-radius: 1.5rem;
+  padding: clamp(0.4rem, 0.8vh, 0.6rem) clamp(0.75rem, 1.4vh, 1rem) clamp(1rem, 1.9vh, 1.25rem);
+  border-radius: 0.9rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: clamp(0.25rem, 0.8vh, 0.45rem);
   transition: all 0.3s ease;
 }
 
@@ -404,26 +371,26 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
 
 .card-icon-wrapper {
   color: #f8dd73;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
   flex-shrink: 0;
 }
 
 .card-icon-wrapper svg {
-  width: 22px;
-  height: 22px;
+  width: clamp(18px, 2vh, 22px);
+  height: clamp(18px, 2vh, 22px);
 }
 
 .card-title {
   color: #fff;
-  font-size: inherit;
+  font-size: 0.92rem;
   font-weight: 700;
   margin: 0;
 }
 
 .card-description {
   color: rgba(255, 255, 255, 0.4);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.78rem;
+  line-height: 1.35;
   margin: 0;
 }
 
@@ -438,13 +405,6 @@ import biometriaFacilImg from '@/assets/segments/biometriaFacil.png';
   .integrations-cards-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .advanced-integrations-section {
-    padding-top: 0;
-    padding-bottom: 20px;
   }
 }
 
