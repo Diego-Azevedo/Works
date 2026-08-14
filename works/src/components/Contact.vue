@@ -58,7 +58,7 @@
                 <div class="contact-icon">
                   <component :is="IconLocation" />
                 </div>
-                <span>Rua dois norte, 251 Apt 201 - Teutônia, RS</span>
+                <span>Rua Coronel Pena de Moraes, 513 Sala 408 - Farroupilha, RS</span>
               </div>
             </div>
           </div>
