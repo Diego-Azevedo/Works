@@ -1,5 +1,5 @@
 <template>
-  <section id="contato" class="contact-section">
+  <section class="contact-section">
     <div class="content-container">
       
       <div class="contact-grid">
@@ -385,11 +385,17 @@ const openWhatsApp = () => {
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   color: #fff;
   font-size: 0.95rem;
-  white-space: nowrap; /* ícone e texto permanecem na mesma linha */
+  min-width: 0;
+  width: 100%;
+}
+
+.contact-item span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .contact-icon {
