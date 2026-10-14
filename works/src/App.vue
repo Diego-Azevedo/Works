@@ -24,6 +24,8 @@
         <Contact />
       </section>
     </main>
+
+    <Footer />
   </div>
 </template>
 
@@ -34,6 +36,7 @@ import Home from './components/Home.vue'
 import Services from './components/Services.vue'
 import Technology from './components/Technology.vue'
 import Contact from './components/Contact.vue'
+import Footer from './components/Footer.vue'
 import { onMounted } from 'vue';
 
 onMounted(() => {
