@@ -4,12 +4,7 @@
       <span>&copy; {{ currentYear }} Works Sistemas Inteligentes</span>
 
       <span class="site-credit">
-        <a
-          href="https://cosmotools.online/pt/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Site desenvolvido com CosmoTools (abre em uma nova aba)"
-        >Site desenvolvido</a>
+        <span>Site desenvolvido</span>
         por
         <a
           href="https://www.linkedin.com/in/diego-azv/"
